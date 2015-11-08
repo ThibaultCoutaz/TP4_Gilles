@@ -1,0 +1,16 @@
+﻿La génération a démarré 29/09/2015 16:11:04.
+     1>Projet "C:\Users\tcoutaz\Documents\GitHub\TP2_Gilles\TP2_Gilles\TP2_Gilles.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp struct.cpp
+         struct.cpp
+         main.cpp
+         Génération de code en cours...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tcoutaz\Documents\GitHub\TP2_Gilles\Debug\TP2_Gilles.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tcoutaz\Documents\GitHub\TP2_Gilles\Debug\TP2_Gilles.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tcoutaz\Documents\GitHub\TP2_Gilles\Debug\TP2_Gilles.lib" /MACHINE:X86 Debug\main.obj
+         Debug\struct.obj
+         TP2_Gilles.vcxproj -> C:\Users\tcoutaz\Documents\GitHub\TP2_Gilles\Debug\TP2_Gilles.exe
+     1>Génération du projet "C:\Users\tcoutaz\Documents\GitHub\TP2_Gilles\TP2_Gilles\TP2_Gilles.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:01.67
