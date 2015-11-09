@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include <GL/glut.h>
+#include <glut.h>
 #include "struct.h"
 #include <iostream>
 #include <string>
@@ -53,7 +53,17 @@ point3 center(0.,0.,0.);
 static void init()
 {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
-	// Si vous avez des choses à initialiser, c est ici.	
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+
+	GLfloat ambient[] = { 0.0, 0.0, 1.0, 1.0 };
+	GLfloat diffuse[] = { 0.9,0.9, 0.2, 1.0 };
+	GLfloat position[] = { 0.0, 3.0, 3.0, 0.0 };
+
+	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+	glLightfv(GL_LIGHT0, GL_POSITION, position);
 }
 
 
@@ -66,10 +76,12 @@ void normalFace(point3 _Sommets1,point3 _Sommets2,point3 _Sommets3,int _index){
 	normal.x = v12.y*v13.z - v12.z*v13.y;
 	normal.y = v12.z*v13.x - v12.x*v13.z;
 	normal.z = v12.x*v13.y - v12.y*v13.x;
+	
+	point3 norm = point3(normal.x, normal.y, normal.z)/**(1 / sqrt(normal.x*normal.x + normal.y*normal.y + normal.z*normal.z))*/;
 
-	Normals[_index]=normal.x;
-	Normals[_index+1]=normal.y;
-	Normals[_index+2]=normal.z;
+	Normals[_index]=norm.x;
+	Normals[_index+1]= norm.y;
+	Normals[_index+2]= norm.z;
 }
 
 //To Manage the File
@@ -236,8 +248,6 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //effacement du buffer
 
 	glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_LIGHTING);
-	//glEnable(GL_LIGHT0);
 	glEnable(GL_CULL_FACE);
 	//Description de la scene
 	glLoadIdentity();
@@ -250,7 +260,6 @@ void display(void)
 	glRotatef(angleX,0.0f,1.0f,0.0f);
 
 	DrawObj();
-	WriteFile("test.off");
 
 	//affiche les axes du repere
 		glColor3f(0.0,1.0,0.0); //Y vert
@@ -331,6 +340,11 @@ switch (key)
 	case 'd':
 		tx+=int(pasDeplacement);glutPostRedisplay();
 	break;
+
+	case 'x':
+		WriteFile("test.off");
+		cout << "Sauvegarde Effectue" << endl;
+		break;
 
 //sortie
 	case KEY_ESC:
